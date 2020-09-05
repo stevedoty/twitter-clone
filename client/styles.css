@@ -1,3 +1,8 @@
+body{
+  background-color: black;
+  color: white;
+}
+
 .title{
   text-align: center;
 }
@@ -5,4 +10,8 @@
 .tweet-form{
   width: 50%;
   margin: 0 auto;
+}
+
+.loading{
+  text-align: center;
 }
