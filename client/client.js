@@ -1,7 +1,6 @@
-console.log('hello');
-
 const form = document.querySelector('form');
 const loadingElement = document.querySelector('.loading');
+const API_URL = "http://localhost:5000/tweets";
 
 loadingElement.style.display = 'none';
 
@@ -14,8 +13,18 @@ form.addEventListener('submit', (event) => {
   const tweet = {
     name,
     content
+  };
+  const options = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(tweet)
   }
-  console.log(tweet);
+
   form.style.display = 'none';
   loadingElement.style.display = '';
-})
+
+
+  fetch(API_URL, options);
+});
