@@ -14,17 +14,19 @@ form.addEventListener('submit', (event) => {
     name,
     content
   };
-  const options = {
+
+  form.style.display = 'none';
+  loadingElement.style.display = '';
+
+  fetch(API_URL, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(tweet)
-  }
-
-  form.style.display = 'none';
-  loadingElement.style.display = '';
-
-
-  fetch(API_URL, options);
+  })
+  .then(response => response.json())
+  .then(createdTweet => {
+    console.log(createdTweet);
+  });
 });
